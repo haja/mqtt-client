@@ -1,5 +1,8 @@
 ## Overview
 
+WIP: this is a work-in-progress fork of mqtt-client for android.
+Most of this readme is outdated and should be updated at some point.
+
 MQTT is a machine-to-machine (M2M)/"Internet of Things" connectivity
 protocol. It was designed as an extremely lightweight publish/subscribe
 messaging transport. It is useful for connections with remote locations where
