@@ -1,0 +1,44 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "25.0.2"
+
+    lintOptions {
+        abortOnError false
+    }
+
+    defaultConfig {
+        minSdkVersion 22
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'org.fusesource.hawtbuf:hawtbuf:1.11'
+    compile 'org.fusesource.hawtdispatch:hawtdispatch-transport:1.22'
+
+    testCompile 'junit:junit:4.12'
+
+    testCompile 'org.apache.activemq:apollo-broker:1.7.1'
+    testCompile 'org.apache.activemq:apollo-mqtt:1.7.1'
+    testCompile 'org.apache.activemq:apollo-leveldb:1.7.1'
+    //testCompile 'org.apache.activemq:apollo-web:1.7.1'
+    testCompile 'org.eclipse.jetty.aggregate:jetty-all-server:7.1.6.v20100715'
+    testCompile 'org.slf4j:slf4j-log4j12:1.7.18'
+}
