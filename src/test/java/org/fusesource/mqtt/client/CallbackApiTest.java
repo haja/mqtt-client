@@ -18,11 +18,13 @@
 
 package org.fusesource.mqtt.client;
 
-import junit.framework.TestCase;
 import org.fusesource.hawtbuf.Buffer;
 import static org.fusesource.hawtbuf.Buffer.*;
+import static org.junit.Assert.assertEquals;
+
 import org.fusesource.hawtbuf.UTF8Buffer;
 import org.fusesource.mqtt.codec.MQTTFrame;
+import org.junit.Test;
 
 /**
  * <p>
@@ -32,6 +34,7 @@ import org.fusesource.mqtt.codec.MQTTFrame;
  */
 public class CallbackApiTest extends BrokerTestSupport {
 
+    @Test
     public void testInterface() throws Exception {
         final Promise<Buffer> result = new Promise<Buffer>();
         MQTT mqtt = new MQTT();

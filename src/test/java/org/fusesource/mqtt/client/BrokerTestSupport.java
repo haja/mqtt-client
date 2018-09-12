@@ -18,10 +18,11 @@
 
 package org.fusesource.mqtt.client;
 
-import junit.framework.TestCase;
 import org.apache.activemq.apollo.broker.Broker;
 import org.apache.activemq.apollo.broker.BrokerFactory;
 import org.apache.activemq.apollo.util.ServiceControl;
+import org.junit.After;
+import org.junit.Before;
 
 import java.io.File;
 import java.net.InetSocketAddress;
@@ -33,7 +34,7 @@ import java.net.URL;
  *
  * @author <a href="http://hiramchirino.com">Hiram Chirino</a>
  */
-public abstract class BrokerTestSupport extends TestCase {
+public abstract class BrokerTestSupport {
 
     public int port = 1883;
     public Broker broker;
@@ -43,8 +44,8 @@ public abstract class BrokerTestSupport extends TestCase {
         return BrokerFactory.createBroker(resource.toURI().toString());
     }
 
-    @Override
-    protected void setUp() throws Exception {
+    @Before
+    public void setUp() throws Exception {
         if (System.getProperty("basedir") == null) {
             File file = new File(".");
             System.setProperty("basedir", file.getAbsolutePath());
@@ -54,8 +55,8 @@ public abstract class BrokerTestSupport extends TestCase {
         this.port = ((InetSocketAddress)broker.get_socket_address()).getPort();
     }
 
-    @Override
-    protected void tearDown() throws Exception {
+    @After
+    public void tearDown() throws Exception {
         if(broker!=null) {
             ServiceControl.stop(broker, "Stopped Apollo Broker");
             broker = null;

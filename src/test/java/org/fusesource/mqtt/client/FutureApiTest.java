@@ -18,11 +18,12 @@
 
 package org.fusesource.mqtt.client;
 
-import junit.framework.TestCase;
 import org.fusesource.hawtbuf.Buffer;
+import org.junit.Test;
 
 import static org.fusesource.hawtbuf.Buffer.ascii;
 import static org.fusesource.hawtbuf.Buffer.utf8;
+import static org.junit.Assert.assertEquals;
 
 /**
  * <p>
@@ -32,6 +33,7 @@ import static org.fusesource.hawtbuf.Buffer.utf8;
  */
 public class FutureApiTest extends BrokerTestSupport {
 
+    @Test
     public void testInterface() throws Exception {
         final Promise<Buffer> result = new Promise<Buffer>();
 

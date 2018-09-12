@@ -21,7 +21,14 @@ package org.fusesource.mqtt.client;
 import java.util.concurrent.TimeUnit;
 
 import static org.fusesource.hawtbuf.Buffer.utf8;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.notNullValue;
+import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.fail;
+
 import org.fusesource.mqtt.codec.MQTTFrame;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,6 +42,7 @@ public class BlockingApiTest extends BrokerTestSupport {
 
     private static final Logger LOG = LoggerFactory.getLogger(BlockingApiTest.class);
 
+    @Test
     public void testInterface() throws Exception {
         MQTT mqtt = new MQTT();
         mqtt.setHost("localhost", port);
@@ -47,7 +55,7 @@ public class BlockingApiTest extends BrokerTestSupport {
 
         connection.publish("foo", "Hello".getBytes(), QoS.AT_LEAST_ONCE, false);
         Message message = connection.receive();
-        assertEquals("Hello", new String(message.getPayload())) ;
+        assertThat(new String(message.getPayload()), is("Hello")) ;
 
         // To let the server know that it has been processed.
         message.ack();
@@ -55,6 +63,7 @@ public class BlockingApiTest extends BrokerTestSupport {
         connection.disconnect();
     }
 
+    @Test
     public void testInvalidClientId() throws Exception {
         MQTT mqtt = new MQTT();
         mqtt.setHost("localhost", port);
@@ -81,6 +90,7 @@ public class BlockingApiTest extends BrokerTestSupport {
         }
     }
 
+    @Test
     public void testReceiveTimeout() throws Exception {
         MQTT mqtt = new MQTT();
         mqtt.setHost("localhost", port);
@@ -109,12 +119,12 @@ public class BlockingApiTest extends BrokerTestSupport {
 
         // force a receive timeout
         Message message = connection.receive(1000, TimeUnit.MILLISECONDS);
-        assertNull(message);
+        assertThat(message, is(nullValue()));
 
         connection.publish("foo", "Hello".getBytes(), QoS.AT_LEAST_ONCE, false);
         message = connection.receive(5000, TimeUnit.MILLISECONDS);
-        assertNotNull(message);
-        assertEquals("Hello", new String(message.getPayload()));
+        assertThat(message, is(notNullValue()));
+        assertThat(new String(message.getPayload()), is("Hello"));
 
         // To let the server know that it has been processed.
         message.ack();
