@@ -27,17 +27,17 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'org.fusesource.hawtbuf:hawtbuf:1.11'
-    compile 'org.fusesource.hawtdispatch:hawtdispatch-transport:1.22'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:23.1.1'
+    api 'org.fusesource.hawtbuf:hawtbuf:1.11'
+    implementation 'org.fusesource.hawtdispatch:hawtdispatch-transport:1.22'
 
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
 
-    testCompile 'org.apache.activemq:apollo-broker:1.7.1'
-    testCompile 'org.apache.activemq:apollo-mqtt:1.7.1'
-    testCompile 'org.apache.activemq:apollo-leveldb:1.7.1'
-    //testCompile 'org.apache.activemq:apollo-web:1.7.1'
-    testCompile 'org.eclipse.jetty.aggregate:jetty-all-server:7.1.6.v20100715'
-    testCompile 'org.slf4j:slf4j-log4j12:1.7.18'
+    testImplementation 'org.apache.activemq:apollo-broker:1.7.1'
+    testImplementation 'org.apache.activemq:apollo-mqtt:1.7.1'
+    testImplementation 'org.apache.activemq:apollo-leveldb:1.7.1'
+    //testImplementation 'org.apache.activemq:apollo-web:1.7.1'
+    testImplementation 'org.eclipse.jetty.aggregate:jetty-all-server:7.1.6.v20100715'
+    testImplementation 'org.slf4j:slf4j-log4j12:1.7.18'
 }
