@@ -1,35 +1,17 @@
-#java
-*.class
+# mqtt-client specific
+dump.txt
+in/
+lib/
+usage.txt
 
-#general
-*~
-*.lock
-*.DS_Store
-*.log
-
-#idea
-.idea
-.idea/*
+# android stuff
 *.iml
-*.ipr
-*.iws
-*.svn:
-
-#Eclipse
-
-*.classpath
-*.settings
-*.project
-
-#maven
-target
-
-# OS Stuff
-*.swp
+.idea/
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+/.idea/dictionaries
 .DS_Store
-
-mqtt-client/dump.txt
-mqtt-client/in/
-mqtt-client/lib/
-mqtt-client/usage.txt
-
+**/build
+/captures

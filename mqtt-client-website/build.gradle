@@ -1,0 +1,12 @@
+
+apply plugin: 'war'
+
+description = 'mqtt-client-website'
+dependencies {
+    compile group: 'org.scala-lang', name: 'scala-library', version:'2.9.1'
+    compile group: 'org.scala-lang', name: 'scala-compiler', version:'2.9.1'
+    compile group: 'org.fusesource.scalate', name: 'scalate-wikitext', version:'1.5.3'
+    compile group: 'org.fusesource.scalate', name: 'scalate-page', version:'1.5.3'
+    compile group: 'org.fusesource.scalamd', name: 'scalamd', version:'1.5'
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version:'1.6.0'
+}

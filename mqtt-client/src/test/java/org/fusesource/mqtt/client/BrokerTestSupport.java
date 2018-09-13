@@ -33,7 +33,7 @@ import java.net.URL;
  *
  * @author <a href="http://hiramchirino.com">Hiram Chirino</a>
  */
-public class BrokerTestSupport extends TestCase {
+public abstract class BrokerTestSupport extends TestCase {
 
     public int port = 1883;
     public Broker broker;

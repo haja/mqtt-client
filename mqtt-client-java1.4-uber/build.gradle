@@ -1,0 +1,7 @@
+
+description = 'mqtt-client-java1.4-uber'
+dependencies {
+    compile group: 'org.osgi', name: 'org.osgi.core', version:'4.2.0'
+    compile group: 'org.osgi', name: 'org.osgi.compendium', version:'4.2.0'
+    compile group: 'asm', name: 'asm-tree', version:'3.1'
+}

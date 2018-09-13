@@ -1,0 +1,8 @@
+rootProject.name = 'mqtt-client-project'
+include ':mqtt-client'
+include ':mqtt-client-java1.4-uber'
+include ':mqtt-client-website'
+
+project(':mqtt-client').projectDir = "$rootDir/mqtt-client" as File
+project(':mqtt-client-java1.4-uber').projectDir = "$rootDir/mqtt-client-java1.4-uber" as File
+project(':mqtt-client-website').projectDir = "$rootDir/mqtt-client-website" as File
